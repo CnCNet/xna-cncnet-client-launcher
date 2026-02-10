@@ -1,7 +1,7 @@
-﻿namespace CnCNet.LauncherStub;
-
+﻿
 using System.ComponentModel;
 
+namespace CnCNet.LauncherStub;
 public abstract class NotifyPropertyChangedBase : INotifyPropertyChanged
 {
     public event PropertyChangedEventHandler? PropertyChanged;

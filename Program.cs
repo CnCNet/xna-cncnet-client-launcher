@@ -1,17 +1,13 @@
-﻿namespace CnCNet.LauncherStub;
-
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using CnCNet.LauncherStub.LocalizationResources;
 using Microsoft.Win32;
 
+namespace CnCNet.LauncherStub;
 internal sealed class Program
 {
     private const string Resources = "Resources";

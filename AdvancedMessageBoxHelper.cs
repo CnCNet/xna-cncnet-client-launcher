@@ -1,7 +1,7 @@
-﻿namespace CnCNet.LauncherStub;
-
+﻿
 using System.Collections.ObjectModel;
 
+namespace CnCNet.LauncherStub;
 public static class AdvancedMessageBoxHelper
 {
     public static int? ShowMessageBoxWithSelection(string message, string title, string[] selections)

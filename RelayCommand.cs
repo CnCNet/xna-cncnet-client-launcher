@@ -1,8 +1,6 @@
-﻿namespace CnCNet.LauncherStub;
+﻿using System.Windows.Input;
 
-using System;
-using System.Windows.Input;
-
+namespace CnCNet.LauncherStub;
 public class RelayCommand : ICommand
 {
     private readonly Action<object> execute;
