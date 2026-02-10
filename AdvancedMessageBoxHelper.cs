@@ -1,5 +1,4 @@
-﻿
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 
 namespace CnCNet.LauncherStub;
 public static class AdvancedMessageBoxHelper

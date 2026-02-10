@@ -1,5 +1,4 @@
-﻿
-using System.ComponentModel;
+﻿using System.ComponentModel;
 
 namespace CnCNet.LauncherStub;
 public abstract class NotifyPropertyChangedBase : INotifyPropertyChanged

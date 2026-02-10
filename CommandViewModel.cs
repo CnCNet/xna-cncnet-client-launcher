@@ -1,5 +1,4 @@
-﻿
-using System.Windows.Input;
+﻿using System.Windows.Input;
 
 namespace CnCNet.LauncherStub;
 public class CommandViewModel : NotifyPropertyChangedBase
