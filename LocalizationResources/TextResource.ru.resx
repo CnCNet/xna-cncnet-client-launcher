@@ -159,10 +159,10 @@
   <data name="Command_ThrowException_Message" xml:space="preserve">
     <value>Сообщение об ошибке</value>
   </data>
-  <data name="RemoveZoneIdentifer_ErrorMessage" xml:space="preserve">
+  <data name="RemoveZoneIdentifier‌_ErrorMessage" xml:space="preserve">
     <value>Произошла ошибка во время попытки лаунчера разблокировать файлы. Попробуйте перезапустить лаунчер с правами администратора.</value>
   </data>
-  <data name="RemoveZoneIdentifer_FailedList" xml:space="preserve">
+  <data name="RemoveZoneIdentifier‌_FailedList" xml:space="preserve">
     <value>Не удалось удалить Zone.Identifier у следующих файлов:</value>
   </data>
   <data name="IncompatibleGPU_Title" xml:space="preserve">

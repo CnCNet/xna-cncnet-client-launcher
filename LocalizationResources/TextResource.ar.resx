@@ -159,10 +159,10 @@
 <data name="Command_ThrowException_Message" xml:space="preserve">
     <value>رسالة الخطأ الاستثنائي</value>
 </data>
-<data name="RemoveZoneIdentifer_ErrorMessage" xml:space="preserve">
+<data name="RemoveZoneIdentifier‌_ErrorMessage" xml:space="preserve">
     <value>لم يستطع البرنامج التعرف على الملفات. حاول التشغيل كمسؤول</value>
 </data>
-<data name="RemoveZoneIdentifer_FailedList" xml:space="preserve">
+<data name="RemoveZoneIdentifier‌_FailedList" xml:space="preserve">
     <value>فشل في إزالة Zone.Identifier من الملفات التالية:</value>
 </data>
 <data name="IncompatibleGPU_Title" xml:space="preserve">

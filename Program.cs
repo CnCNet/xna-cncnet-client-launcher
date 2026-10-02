@@ -87,15 +87,15 @@ internal sealed class Program
     {
         try
         {
-            RemoveZoneIdentifer(CurrentDirectory);
+            RemoveZoneIdentifier‌(CurrentDirectory);
         }
         catch (Exception ex)
         {
-            // RemoveZoneIdentifer_ErrorMessage: An error occurred when the launcher tried to unblock files. Re-running the launcher with administrator privileges might help.
+            // RemoveZoneIdentifier‌_ErrorMessage: An error occurred when the launcher tried to unblock files. Re-running the launcher with administrator privileges might help.
             // Continue: Continue
             // Exit: Exit
             bool ignoreUnblocking = AdvancedMessageBoxHelper.ShowYesNoMessageBox(
-                   TextResource.RemoveZoneIdentifer_ErrorMessage + "\n\n" + ex.ToString(),
+                   TextResource.RemoveZoneIdentifier‌_ErrorMessage + "\n\n" + ex.ToString(),
                    // ClientLauncher_WarningTitle: Client Launcher Warning
                    TextResource.ClientLauncher_WarningTitle,
                    yesText: TextResource.Continue,
@@ -202,7 +202,7 @@ internal sealed class Program
         msgbox.ShowDialog();
     }
 
-    private static int RemoveZoneIdentifer_Win32(string filepath)
+    private static int RemoveZoneIdentifier‌_Win32(string filepath)
     {
         string zoneIdentifier = filepath + ":Zone.Identifier";
         bool success = NativeMethods.DeleteFile(zoneIdentifier);
@@ -213,7 +213,7 @@ internal sealed class Program
         return error;
     }
 
-    private static void RemoveZoneIdentifer(string directory)
+    private static void RemoveZoneIdentifier‌(string directory)
     {
         // https://stackoverflow.com/a/6375373
 
@@ -225,7 +225,7 @@ internal sealed class Program
         // For each file, remove the Zone.Identifier alternate data stream
         foreach (string file in files)
         {
-            int ret = RemoveZoneIdentifer_Win32(file);
+            int ret = RemoveZoneIdentifier‌_Win32(file);
             if (ret == 0)
                 continue;
 
@@ -244,7 +244,7 @@ internal sealed class Program
                 if (info.IsReadOnly)
                 {
                     info.IsReadOnly = false;
-                    ret = RemoveZoneIdentifer_Win32(file);
+                    ret = RemoveZoneIdentifier‌_Win32(file);
                     info.IsReadOnly = true;
                     if (ret == 0)
                         continue;
@@ -256,8 +256,8 @@ internal sealed class Program
         }
 
         if (failedMessages.Count > 0)
-            // RemoveZoneIdentifer_FailedList: Failed to remove Zone.Identifier from the following files:
-            throw new Exception(TextResource.RemoveZoneIdentifer_FailedList + "\n" + string.Join("\n", failedMessages));
+            // RemoveZoneIdentifier‌_FailedList: Failed to remove Zone.Identifier from the following files:
+            throw new Exception(TextResource.RemoveZoneIdentifier‌_FailedList + "\n" + string.Join("\n", failedMessages));
     }
 
     private static void RunXNA()

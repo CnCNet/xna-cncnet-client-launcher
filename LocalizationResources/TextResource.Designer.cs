@@ -306,18 +306,18 @@ namespace CnCNet.LauncherStub.LocalizationResources {
         /// <summary>
         ///   Looks up a localized string similar to An error occurred when the launcher tried to unblock files. Re-running the launcher with administrator privileges might help..
         /// </summary>
-        public static string RemoveZoneIdentifer_ErrorMessage {
+        public static string RemoveZoneIdentifier‌_ErrorMessage {
             get {
-                return ResourceManager.GetString("RemoveZoneIdentifer_ErrorMessage", resourceCulture);
+                return ResourceManager.GetString("RemoveZoneIdentifier‌_ErrorMessage", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Failed to remove Zone.Identifier from the following files:.
         /// </summary>
-        public static string RemoveZoneIdentifer_FailedList {
+        public static string RemoveZoneIdentifier‌_FailedList {
             get {
-                return ResourceManager.GetString("RemoveZoneIdentifer_FailedList", resourceCulture);
+                return ResourceManager.GetString("RemoveZoneIdentifier‌_FailedList", resourceCulture);
             }
         }
         

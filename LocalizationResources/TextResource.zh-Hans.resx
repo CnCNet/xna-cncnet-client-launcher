@@ -159,10 +159,10 @@
   <data name="Command_ThrowException_Message" xml:space="preserve">
     <value>此处为异常信息</value>
   </data>
-  <data name="RemoveZoneIdentifer_ErrorMessage" xml:space="preserve">
+  <data name="RemoveZoneIdentifier‌_ErrorMessage" xml:space="preserve">
     <value>启动器尝试解除文件锁定时发生错误。以管理员权限重新运行启动器或许能解决问题。</value>
   </data>
-  <data name="RemoveZoneIdentifer_FailedList" xml:space="preserve">
+  <data name="RemoveZoneIdentifier‌_FailedList" xml:space="preserve">
     <value>未能从以下文件移除 Zone.Identifier：</value>
   </data>
   <data name="IncompatibleGPU_Title" xml:space="preserve">
