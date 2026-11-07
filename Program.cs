@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using System.Runtime.InteropServices;
+using System.Text;
 using CnCNet.LauncherStub.LocalizationResources;
 using Microsoft.Win32;
 
@@ -19,6 +20,14 @@ internal sealed class Program
     private static readonly string CurrentDirectory = new FileInfo(Assembly.GetEntryAssembly().Location).Directory.FullName;
 
     private const int ERROR_CANCELLED_CODE = 1223;
+
+    private static readonly string[] LauncherArguments = ["-DX", "-XNA", "-OGL", "-UGL", "-NET8", "-DIALOGTEST"];
+
+    /// <summary>
+    /// Arguments the launcher does not handle itself, such as a file opened through a file association,
+    /// quoted and ready to be appended to the client's command line. Empty, or starts with a space.
+    /// </summary>
+    private static string ForwardedArguments = string.Empty;
 
 #if NETFRAMEWORK
     private static bool? _isMono;
@@ -107,6 +116,10 @@ internal sealed class Program
 
         try
         {
+            ForwardedArguments = string.Concat(args
+                .Where(arg => !LauncherArguments.Contains(arg.ToUpperInvariant()))
+                .Select(arg => " " + QuoteArgument(arg)));
+
             foreach (string arg in args)
             {
                 switch (arg.ToUpperInvariant())
@@ -451,7 +464,7 @@ internal sealed class Program
         var processStartInfo = new ProcessStartInfo
         {
             FileName = dotnetHost,
-            Arguments = "\"" + absolutePath + "\"",
+            Arguments = "\"" + absolutePath + "\"" + ForwardedArguments,
             CreateNoWindow = true,
             UseShellExecute = false,
         };
@@ -543,7 +556,7 @@ internal sealed class Program
 
         try
         {
-            Process.Start(completeFilePath);
+            Process.Start(completeFilePath, ForwardedArguments.TrimStart());
         }
         catch (Win32Exception ex)
         {
@@ -557,6 +570,42 @@ internal sealed class Program
 
             throw ex;
         }
+    }
+
+    /// <summary>
+    /// Quotes an argument so that the client receives it unchanged, following the rules
+    /// Windows programs use to split their command line.
+    /// </summary>
+    private static string QuoteArgument(string argument)
+    {
+        if (argument.Length > 0 && argument.IndexOfAny([' ', '\t', '\n', '\v', '"']) < 0)
+            return argument;
+
+        var quoted = new StringBuilder("\"");
+        int backslashes = 0;
+
+        foreach (char c in argument)
+        {
+            if (c == '\\')
+            {
+                backslashes++;
+                continue;
+            }
+
+            // Backslashes only need escaping when a quote follows them.
+            if (c == '"')
+                quoted.Append('\\', (backslashes * 2) + 1);
+            else
+                quoted.Append('\\', backslashes);
+
+            quoted.Append(c);
+            backslashes = 0;
+        }
+
+        quoted.Append('\\', backslashes * 2);
+        quoted.Append('"');
+
+        return quoted.ToString();
     }
 
     private static void OpenUri(Uri uri)
